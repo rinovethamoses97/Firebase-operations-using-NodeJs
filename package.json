@@ -1,0 +1,18 @@
+{
+  "name": "firebase(Nodejs)",
+  "version": "1.0.0",
+  "description": "write data to firebase using node js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rino",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "firebase": "^5.4.2",
+    "firebase-admin": "^6.0.0"
+  }
+}
