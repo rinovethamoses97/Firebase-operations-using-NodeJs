@@ -12,7 +12,7 @@ admin.initializeApp({
 });
 router.get('/insert/:d1/:d2',function(req,res){
 	var db = admin.database();
-	var ref=db.ref('ard01/');
+	var ref=db.ref('ard01/test');
 	ref.update({
 		d1:req.params.d1,
 		d2:req.params.d2,
