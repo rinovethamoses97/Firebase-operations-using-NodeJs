@@ -4,7 +4,7 @@
   "description": "write data to firebase using node js",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "rino",
   "license": "ISC",
@@ -14,8 +14,5 @@
     "express": "^4.16.3",
     "firebase": "^5.4.2",
     "firebase-admin": "^6.0.0"
-  },
-  "scripts": {
-    "start": "node app.js"
   }
 }
