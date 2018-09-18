@@ -15,7 +15,7 @@ router.get('/insert/:d1/:d2/:d3',function(req,res){
 	var p1=req.params.d1;
 	var ref1=db.ref('ard01/0/pulse');
 	ref1.update({
-		""+p1:req.params.d2,
+		p1:req.params.d2,
 	})
 	
 	
