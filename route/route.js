@@ -14,7 +14,7 @@ router.get('/insert/:d1/:d2/:d3',function(req,res){
 	var db = admin.database();
 	var ref=db.ref('ard01/test');
 	ref.update({
-		req.params.d1:req.params.d2,
+		d1:req.params.d2,
 		d1:req.params.d3,
 		
 	})
