@@ -5,22 +5,24 @@ var router=express.Router();
 router.use(cors());
 router.use(bodyparser.json());
 var admin = require("firebase-admin");
+var admin1 = require("firebase-admin");
 var serviceAccount = require("./serviceAccountKey.json");
-admin.initializeApp({
+var serviceAccount1 = require("./serviceAccountKey1.json");
+var spo2=admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://breatheeasy-7c7af.firebaseio.com"
+  databaseURL: "https://spo2database.firebaseio.com/"
 });
-router.get('/insert/:d1/:d2/:d3',function(req,res){
-	var db = admin.database();
-	var p1=req.params.d1;
-	var ref1=db.ref('ard01/0/pulse');
-	var obj={};
-	obj[p1]=req.params.d2;
-	console.log(obj);
-	ref1.update(obj);
-	var ref2=db.ref('ard01/0/spo2');
-	obj[p1]=req.params.d3;
-	ref2.update(obj);
-	res.send("success"+req.params.d1+req.params.d2+req.params.d3);
+var pulse=admin1.initializeApp({
+  		credential: admin.credential.cert(serviceAccount1),
+  		databaseURL: "https://pulsedatabase-9cabd.firebaseio.com/"
+},"pulse");
+router.get('/insert/:d1/:d2',function(req,res){
+	var db = spo2.database();
+	var ref1=db.ref('ard01/0/spo2');
+	ref1.push(req.params.d1);
+	var db1 = pulse.database();
+	var ref2=db1.ref('ard01/0/pulse');
+	ref2.push(req.params.d2);
+	res.send("success");
 });
 module.exports=router;
