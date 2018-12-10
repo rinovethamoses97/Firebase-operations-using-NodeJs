@@ -19,10 +19,10 @@ var pulse=admin1.initializeApp({
 router.get('/insert/:d1/:d2',function(req,res){
 	var db = spo2.database();
 	var ref1=db.ref('ard01/0/spo2');
-	ref1.push(req.params.d1);
+	ref1.push(req.params.d2);
 	var db1 = pulse.database();
 	var ref2=db1.ref('ard01/0/pulse');
-	ref2.push(req.params.d2);
+	ref2.push(req.params.d1);
 	res.send("success");
 });
 module.exports=router;
